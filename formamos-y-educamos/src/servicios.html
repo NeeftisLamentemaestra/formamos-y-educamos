@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora los programas educativos de Formamos & Educamos. Ofrecemos programas técnicos, diplomados y asesorías personalizadas para tu futuro.">
+    <meta name="keywords" content="servicios educativos, programas técnicos, diplomados, asesorías, e-learning, formación profesional, Colombia">
+    <meta name="author" content="Formamos & Educamos">
+    
+    <title>Nuestros Servicios | Formamos & Educamos</title>
+    
+    <style>
+        /* ---
+        HOJA DE ESTILOS V2.0 - FORMAMOS & EDUCAMOS
+        Código optimizado con la paleta de colores del logo.
+        --- */
+
+        /* 1. CONFIGURACIÓN GLOBAL Y VARIABLES */
+        :root {
+            /* Paleta de Colores Basada en el Logo */
+            --color-primario: #2596D7;          /* Azul brillante del logo */
+            --color-texto-principal: #1d2d35;  /* Negro/Gris oscuro del texto del logo */
+            --color-acento: #FFC107;            /* Amarillo dorado para contraste y llamados a la acción */
+            
+            /* Colores Neutros */
+            --color-fondo: #ffffff;
+            --color-fondo-secundario: #f8f9fa;
+            
+            /* Efectos y Sombreados */
+            --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.07);
+            --transicion-suave: all 0.3s ease-in-out;
+            
+            /* Tipografía */
+            --fuente-titulos: 'Montserrat', sans-serif;
+            --fuente-cuerpo: 'Lato', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800&display=swap');
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--color-texto-principal);
+            background-color: var(--color-fondo);
+            margin: 0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 2. HEADER Y NAVEGACIÓN */
+        .site-header {
+            background-color: var(--color-fondo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+        }
+
+        .logo img {
+            height: 90px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 0; 
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-texto-principal);
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:not(.btn):hover {
+            color: var(--color-primario);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--color-acento);
+            color: var(--color-texto-principal) !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            transition: var(--transicion-suave);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #ffca2c;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        /* 3. ESTILOS DE PÁGINA "NUESTROS SERVICIOS" */
+        .page-hero {
+            padding: 80px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(29, 45, 53, 0.85), rgba(29, 45, 53, 0.85)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1470');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-fondo);
+        }
+
+        .page-title {
+            font-family: var(--fuente-titulos);
+            font-size: 3.8rem;
+            margin: 0 0 10px 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            color: var(--color-texto-principal);
+            margin-bottom: 60px;
+        }
+
+        /* Sección "¿Cómo Funciona?" */
+        .process-section {
+            padding: 100px 0;
+            background-color: var(--color-fondo-secundario);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step .step-number {
+            background-color: var(--color-primario);
+            color: var(--color-fondo);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+        }
+
+        /* Grid de Servicios */
+        .services-section {
+            padding: 100px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--color-fondo);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            color: var(--color-texto-principal);
+            margin: 0 0 15px 0;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .service-features svg {
+            color: var(--color-primario);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        /* Sección FAQ */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--color-fondo-secundario);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: var(--color-fondo);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .faq-item h4 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+        }
+        
+        /* 4. FOOTER */
+        .site-footer {
+            background-color: #111;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* 5. ANIMACIONES */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.is-visible {
+            animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .animate-on-scroll:nth-child(2) { animation-delay: 0.15s; }
+        .animate-on-scroll:nth-child(3) { animation-delay: 0.3s; }
+        .animate-on-scroll:nth-child(4) { animation-delay: 0.45s; }
+
+        /* 6. RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Ideal para implementar un menú hamburguesa */
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="Inicio.html" class="logo" aria-label="Página de inicio de Formamos & Educamos">
+                <img src="IMG/Diseño_sin_título__4__CANVA-removebg-preview REMOVE 33.png" alt="Logo de Formamos & Educamos">
+            </a>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-links">
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="testimonios.html">Testimonios</a></li>
+                    <li><a href="propuesta-valor.html">Propuesta de Valor</a></li>
+                    <li><a href="contacto.html" class="btn">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content" role="main">
+        <section class="page-hero" aria-labelledby="page-title">
+            <div class="container">
+                <h1 id="page-title" class="page-title">Nuestros Programas Educativos</h1>
+                <p class="page-subtitle">Soluciones de aprendizaje flexibles y de alta calidad, diseñadas para impulsar tu carrera profesional.</p>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Tu Camino al Éxito en 3 Pasos</h2>
+                <div class="process-steps">
+                    <div class="step animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <h3>Elige tu Programa</h3>
+                        <p>Explora nuestra oferta y encuentra el curso o diplomado que mejor se adapte a tus metas.</p>
+                    </div>
+                    <div class="step animate-on-scroll">
+                        <div class="step-number">2</div>
+                        <h3>Inscríbete Fácilmente</h3>
+                        <p>Nuestro proceso de matrícula es rápido y sencillo. ¡Empieza a aprender en minutos!</p>
+                    </div>
+                    <div class="step animate-on-scroll">
+                        <div class="step-number">3</div>
+                        <h3>Aprende y Crece</h3>
+                        <p>Accede a materiales de vanguardia y prepárate para alcanzar tu máximo potencial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section" aria-labelledby="services-heading">
+            <div class="container">
+                <h2 id="services-heading" class="section-title animate-on-scroll">Explora Nuestros Servicios</h2>
+                <div class="services-grid">
+
+                    <article class="service-card animate-on-scroll">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1470" alt="Estudiantes en un programa técnico">
+                        </div>
+                        <div class="card-content">
+                            <h3>Programas Técnicos</h3>
+                            <p>Formación especializada y práctica para una rápida inserción en el mercado laboral.</p>
+                            <ul class="service-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Certificación Profesional</li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Enfoque 100% Práctico</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#" class="btn">Ver Más</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card animate-on-scroll">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1471" alt="Profesionales colaborando en un diplomado">
+                        </div>
+                        <div class="card-content">
+                            <h3>Diplomados</h3>
+                            <p>Actualiza tus conocimientos y especialízate en áreas de alta demanda con nuestros programas cortos.</p>
+                             <ul class="service-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Contenido Actualizado</li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Modalidad Flexible</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#" class="btn">Ver Más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="service-card animate-on-scroll">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=1470" alt="Persona recibiendo asesoría personalizada">
+                        </div>
+                        <div class="card-content">
+                            <h3>Asesorías Personalizadas</h3>
+                            <p>Apoyo individual para maximizar tu aprendizaje, resolver dudas y guiar tu desarrollo profesional.</p>
+                             <ul class="service-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Tutores Expertos</li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Plan de Estudio a tu Medida</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#" class="btn">Ver Más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="service-card animate-on-scroll">
+                        <div class="card-image">
+                           <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&q=80&w=1374" alt="Persona usando una plataforma de aprendizaje virtual">
+                        </div>
+                        <div class="card-content">
+                            <h3>Aprendizaje Virtual</h3>
+                            <p>Accede a nuestros recursos educativos desde cualquier lugar y a cualquier hora.</p>
+                             <ul class="service-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso 24/7 a la Plataforma</li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Clases en Vivo y Grabadas</li>
+                            </ul>
+                            <div class="card-footer">
+                                <a href="#" class="btn">Ver Más</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Preguntas Frecuentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item animate-on-scroll">
+                        <h4>¿Los programas tienen certificación?</h4>
+                        <p>Sí, todos nuestros programas técnicos y diplomados otorgan una certificación al completar exitosamente el plan de estudios, validando tus nuevas habilidades.</p>
+                    </div>
+                     <div class="faq-item animate-on-scroll">
+                        <h4>¿Qué modalidades de estudio ofrecen?</h4>
+                        <p>Ofrecemos flexibilidad total. Puedes elegir entre modalidades presenciales en nuestras modernas instalaciones, 100% virtuales a través de nuestra plataforma, o un formato híbrido que combina lo mejor de ambos mundos.</p>
+                    </div>
+                     <div class="faq-item animate-on-scroll">
+                        <h4>¿Necesito experiencia previa para inscribirme?</h4>
+                        <p>La mayoría de nuestros programas están diseñados para iniciar desde un nivel fundamental. Para algunos diplomados avanzados, se pueden requerir conocimientos previos, lo cual se especifica en la información de cada programa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Formamos & Educamos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

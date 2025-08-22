@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre nuestra propuesta de valor única en Formamos & Educamos. Ofrecemos educación de calidad con un enfoque innovador y personalizado.">
+    <meta name="keywords" content="propuesta de valor, educación, formación, innovación educativa, docentes calificados, Colombia">
+    <meta name="author" content="Formamos & Educamos">
+    
+    <title>Nuestra Propuesta de Valor | Formamos & Educamos</title>
+    
+    <style>
+        /* ---
+        HOJA DE ESTILOS V2.0 - FORMAMOS & EDUCAMOS
+        Código optimizado con la paleta de colores del logo.
+        --- */
+
+        /* 1. CONFIGURACIÓN GLOBAL Y VARIABLES */
+        :root {
+            /* Paleta de Colores Basada en el Logo */
+            --color-primario: #2596D7;          /* Azul brillante del logo */
+            --color-texto-principal: #1d2d35;  /* Negro/Gris oscuro del texto del logo */
+            --color-acento: #FFC107;            /* Amarillo dorado para contraste y llamados a la acción */
+            
+            /* Colores Neutros */
+            --color-fondo: #ffffff;
+            --color-fondo-secundario: #f8f9fa;  /* Gris muy claro para secciones */
+            --color-texto-secundario: #555555;
+            
+            /* Efectos y Sombreados */
+            --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.07);
+            --transicion-suave: all 0.3s ease-in-out;
+            
+            /* Tipografía */
+            --fuente-titulos: 'Montserrat', sans-serif;
+            --fuente-cuerpo: 'Lato', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800&display=swap');
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--color-texto-principal);
+            background-color: var(--color-fondo);
+            margin: 0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 2. HEADER Y NAVEGACIÓN */
+        .site-header {
+            background-color: var(--color-fondo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px; /* Más espacio para el logo */
+        }
+
+        .logo img {
+            height: 90px; /* Tamaño prominente */
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 0; 
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-texto-principal);
+            font-weight: 700;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:not(.btn):hover {
+            color: var(--color-primario);
+        }
+
+        /* 3. BOTONES Y COMPONENTES */
+        .btn {
+            display: inline-block;
+            background: var(--color-acento);
+            color: var(--color-texto-principal) !important;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            transition: var(--transicion-suave);
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #ffca2c;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        /* 4. ESTILOS DE PÁGINA "PROPUESTA DE VALOR" */
+        .page-hero {
+            background-color: var(--color-fondo-secundario);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: var(--fuente-titulos);
+            font-size: 3.5rem;
+            color: var(--color-texto-principal);
+            margin: 0 0 10px 0;
+        }
+
+        .page-title span {
+            color: var(--color-primario);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-texto-secundario);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .valor-section {
+            padding: 100px 0;
+        }
+
+        .valor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .valor-card {
+            background-color: var(--color-fondo);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: left;
+            border: 1px solid #e9ecef;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .valor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--color-primario);
+        }
+
+        .valor-card .card-icon {
+            color: var(--color-primario);
+            margin-bottom: 20px;
+        }
+
+        .valor-card .card-icon svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .valor-card h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            color: var(--color-texto-principal);
+            margin: 0 0 15px 0;
+        }
+
+        /* 5. SECCIÓN CTA Y FOOTER */
+        .cta-section {
+            background-color: var(--color-texto-principal);
+            color: var(--color-fondo);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            color: var(--color-fondo);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section .btn {
+            background-color: var(--color-primario);
+            color: var(--color-fondo) !important;
+        }
+        
+        .cta-section .btn:hover {
+            background-color: var(--color-acento);
+            color: var(--color-texto-principal) !important;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .site-footer {
+            background-color: #111;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* 6. ANIMACIONES */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.is-visible {
+            animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .valor-card.animate-on-scroll:nth-child(2) { animation-delay: 0.15s; }
+        .valor-card.animate-on-scroll:nth-child(3) { animation-delay: 0.3s; }
+        .valor-card.animate-on-scroll:nth-child(4) { animation-delay: 0.15s; }
+        .valor-card.animate-on-scroll:nth-child(5) { animation-delay: 0.3s; }
+
+        /* 7. RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .valor-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Oculta menú en móvil, ideal para implementar un menú hamburguesa */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="Inicio.html" class="logo" aria-label="Página de inicio de Formamos & Educamos">
+                <img src="IMG/Diseño_sin_título__4__CANVA-removebg-preview REMOVE 33.png">
+            </a>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-links">
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="testimonios.html">Testimonios</a></li>
+                    <li><a href="propuesta-valor.html">Propuesta de Valor</a></li>
+                    <li><a href="contacto.html" class="btn">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content" role="main">
+        <section class="page-hero" aria-labelledby="page-title">
+            <div class="container">
+                <h1 id="page-title" class="page-title">Nuestra <span>Propuesta de Valor</span></h1>
+                <p class="page-subtitle">Descubre los pilares que nos convierten en tu mejor opción educativa.</p>
+            </div>
+        </section>
+
+        <section class="valor-section" aria-label="Nuestros diferenciadores">
+            <div class="container">
+                <div class="valor-grid">
+
+                    <div class="valor-card animate-on-scroll">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                        </div>
+                        <h3>Enfoque Personalizado</h3>
+                        <p>Cada estudiante es único. Ofrecemos un plan educativo que se adapta a tus necesidades y objetivos, garantizando un aprendizaje efectivo y significativo.</p>
+                    </div>
+
+                    <div class="valor-card animate-on-scroll">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311l-3.75 0M12 12.75l-2.25-2.25m4.5 0l-2.25 2.25M12 3v.75m0 16.5v.75m-4.5-15H5.25m13.5 0H18.75m-10.5 12.75h.008v.008h-.008v-.008z" /></svg>
+                        </div>
+                        <h3>Metodologías Innovadoras</h3>
+                        <p>Combinamos la teoría con la práctica a través de métodos modernos, asegurando que desarrolles habilidades demandadas por el mundo laboral.</p>
+                    </div>
+
+                    <div class="valor-card animate-on-scroll">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-2.176-2.177m11.109 2.177l2.176-2.177m-7.75 2.177l2.176 2.177M12 20.904l-2.176 2.177m0 0l2.176-2.177m2.176 2.177l2.176-2.177m-11.109-2.177l-2.176 2.177" /></svg>
+                        </div>
+                        <h3>Docentes Expertos</h3>
+                        <p>Nuestro equipo está compuesto por profesionales con amplia experiencia, apasionados por la enseñanza y comprometidos con tu éxito.</p>
+                    </div>
+
+                    <div class="valor-card animate-on-scroll">
+                         <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
+                         </div>
+                         <h3>Infraestructura de Vanguardia</h3>
+                         <p>Contamos con instalaciones modernas y equipadas con tecnología de punta, que facilitan un ambiente de aprendizaje óptimo y enriquecedor.</p>
+                    </div>
+
+                    <div class="valor-card animate-on-scroll">
+                        <div class="card-icon">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962a3.75 3.75 0 015.968.08l.008.016a3.75 3.75 0 01-5.968-.096zM12 14.25a3.75 3.75 0 110-7.5 3.75 3.75 0 010 7.5z" /></svg>
+                        </div>
+                        <h3>Red de Oportunidades</h3>
+                        <p>Establecemos alianzas estratégicas con empresas líderes, permitiendo a nuestros estudiantes acceder a una amplia red de prácticas y oportunidades laborales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section" aria-label="Llamada a la acción para inscripción">
+            <div class="container">
+                <h3>¿Listo para dar el siguiente paso?</h3>
+                <p>Descubre cómo "Formamos & Educamos" puede ayudarte a alcanzar tus metas.</p>
+                <a href="contacto.html" class="btn">Inscríbete Ahora</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Formamos & Educamos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

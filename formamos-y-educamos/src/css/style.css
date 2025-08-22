@@ -1,0 +1,405 @@
+/*
+=================================================================
+HOJA DE ESTILOS V2.0 - FORMAMOS & EDUCAMOS
+Paleta de colores actualizada según el logo y estructura reorganizada.
+=================================================================
+*/
+
+/* --- 1. CONFIGURACIÓN GLOBAL Y VARIABLES --- */
+:root {
+    /* Paleta de Colores Basada en el Logo */
+    --color-primario: #2596D7;         /* Azul brillante del logo */
+    --color-texto-principal: #1d2d35; /* Negro/Gris oscuro del texto del logo */
+    --color-acento: #FFC107;           /* Amarillo dorado para contraste y llamados a la acción */
+    
+    /* Colores Neutros */
+    --color-fondo: #ffffff;
+    --color-fondo-secundario: #f4f7fa; /* Gris muy claro para secciones */
+    --color-texto-secundario: #555555;
+
+    /* Tipografía */
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-cuerpo: 'Open Sans', sans-serif;
+    
+    /* Efectos y Sombreados */
+    --sombra-ligera: 0 8px 20px rgba(0, 0, 0, 0.06);
+    --sombra-elevada: 0 12px 35px rgba(0, 0, 0, 0.1);
+    --transicion-suave: all 0.3s ease-in-out;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap');
+
+/* Estilos Base del Body */
+body {
+    font-family: var(--fuente-cuerpo);
+    color: var(--color-texto-principal);
+    background-color: var(--color-fondo);
+    margin: 0;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Estilos Base para Títulos */
+h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-texto-principal);
+    font-weight: 800;
+}
+
+/* Contenedor principal para centrar contenido */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* --- 2. CABECERA Y NAVEGACIÓN --- */
+.top-bar {
+    background-color: var(--color-texto-principal);
+    color: var(--color-fondo);
+    padding: 8px 0;
+    font-size: 0.85rem;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.social-links a {
+    color: var(--color-fondo);
+    margin-left: 15px;
+    transition: var(--transicion-suave);
+}
+
+.social-links a:hover {
+    color: var(--color-primario);
+    transform: scale(1.1);
+}
+
+.site-header {
+    background-color: var(--color-fondo);
+    box-shadow: var(--sombra-ligera);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+    transition: var(--transicion-suave);
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-texto-principal);
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links a:not(.nav-button)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links .nav-button {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: var(--transicion-suave);
+}
+
+.nav-links .nav-button:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto-principal);
+    transform: scale(1.05);
+}
+
+.nav-links .nav-button::after {
+    display: none;
+}
+
+
+/* --- 3. COMPONENTES GENERALES (BOTONES, TARJETAS, TÍTULOS) --- */
+.seccion {
+    padding: 100px 20px;
+}
+
+.seccion-titulo {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.seccion-subtitulo {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    color: var(--color-texto-secundario);
+    text-align: center;
+    font-weight: 400;
+}
+
+.btn {
+    font-family: var(--fuente-titulos);
+    background-color: var(--color-acento);
+    color: var(--color-texto-principal);
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: var(--transicion-suave);
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn:hover {
+    background-color: #ffca2c; /* Acento un poco más brillante */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+}
+
+/* --- 4. SECCIONES ESPECÍFICAS DE LA PÁGINA --- */
+
+/* Hero Section */
+.header-principal {
+    background: linear-gradient(rgba(29, 45, 53, 0.7), rgba(29, 45, 53, 0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1470') no-repeat center center/cover;
+    color: var(--color-fondo);
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.header-principal h1 {
+    font-size: 3.5em;
+    color: var(--color-fondo);
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.header-principal h2 {
+    font-size: 1.5em;
+    color: var(--color-fondo);
+    font-family: var(--fuente-cuerpo);
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto 1.5em;
+}
+
+/* Cursos y Servicios */
+#cursos, #servicios {
+    background-color: var(--color-fondo-secundario);
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.curso-card {
+    background-color: var(--color-fondo);
+    border-radius: 16px;
+    box-shadow: var(--sombra-ligera);
+    overflow: hidden;
+    transition: var(--transicion-suave);
+    display: flex;
+    flex-direction: column;
+}
+
+.curso-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-elevada);
+}
+
+.curso-imagen img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.curso-card:hover .curso-imagen img {
+    transform: scale(1.05);
+}
+
+.curso-contenido {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.curso-contenido h3 {
+    font-size: 1.6rem;
+    margin: 0 0 15px 0;
+}
+
+.curso-contenido p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.curso-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.curso-btn {
+    display: inline-block;
+    align-self: flex-start;
+    text-align: center;
+    background-color: transparent;
+    color: var(--color-primario);
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid var(--color-primario);
+    transition: var(--transicion-suave);
+}
+
+.curso-btn:hover {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+}
+
+/* Testimonios */
+.seccion-testimonios {
+    background-color: var(--color-fondo);
+}
+
+.testimonio {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--color-fondo-secundario);
+    border-left: 6px solid var(--color-primario);
+    border-radius: 0 10px 10px 0;
+    text-align: left;
+}
+
+.testimonio p {
+    font-style: italic;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+.testimonio .autor {
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    text-align: right;
+}
+
+/* CTA Final */
+.cta-final {
+    background-color: var(--color-texto-principal);
+    color: var(--color-fondo);
+}
+
+.cta-final .seccion-titulo,
+.cta-final .seccion-subtitulo {
+    color: var(--color-fondo);
+}
+
+.cta-final .btn {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    box-shadow: none;
+}
+.cta-final .btn:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto-principal);
+}
+
+
+/* --- 5. ANIMACIONES --- */
+@keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.site-header {
+    animation: slideDown 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+
+/* --- 6. DISEÑO RESPONSIVO (MÓVILES) --- */
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+
+    /* Aquí irían los estilos para un menú de hamburguesa */
+    .nav-links {
+        display: none; 
+    }
+    
+    .seccion {
+        padding: 60px 20px;
+    }
+    
+    .header-principal h1 {
+        font-size: 2.5em;
+    }
+
+    .header-principal h2 {
+        font-size: 1.2em;
+    }
+    
+    .seccion-titulo {
+        font-size: 2.2em;
+    }
+    
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+}

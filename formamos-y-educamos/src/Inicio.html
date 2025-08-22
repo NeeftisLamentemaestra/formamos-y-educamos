@@ -1,0 +1,617 @@
+<style>
+    /* ---
+    HOJA DE ESTILOS V11: DISEÑO CORPORATIVO MODERNO (CON SECCIÓN DE CURSOS)
+    --- */
+
+    /* --- 1. CONFIGURACIÓN GLOBAL Y VARIABLES --- */
+    :root {
+        --color-primario-azul: #2596D7; /* Azul extraído del logo */
+        --color-fondo: #ffffff;
+        --color-fondo-secundario: #f4f7fa;
+        --color-texto-principal: #333333;
+        --color-texto-titulos: #1d2d35;
+        --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.06);
+        --sombra-elevada: 0 15px 40px rgba(0, 0, 0, 0.1);
+        --fuente-titulos: 'Playfair Display', serif;
+        --fuente-cuerpo: 'Roboto', sans-serif;
+        --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Roboto:wght@400;500;700&display=swap');
+
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--fuente-cuerpo);
+        color: var(--color-texto-principal);
+        background-color: var(--color-fondo);
+        margin: 0;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* --- 2. LAYOUT Y CONTENEDORES --- */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    section {
+        padding: 120px 0;
+        overflow: hidden;
+        position: relative; 
+    }
+    .text-center { text-align: center; }
+
+    /* --- 3. COMPONENTES DE UI --- */
+
+    /* Loader de Página */
+    .loader-wrapper {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: var(--color-fondo); display: flex; justify-content: center;
+        align-items: center; z-index: 9999; transition: opacity 0.7s ease;
+    }
+    .loader {
+        border: 8px solid #e3e3e3;
+        border-top: 8px solid var(--color-primario-azul);
+        border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;
+    }
+
+    /* Botones con efecto de brillo profesional */
+    .btn {
+        position: relative;
+        display: inline-block;
+        background-color: var(--color-primario-azul);
+        color: #fff;
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: var(--fuente-cuerpo);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid var(--color-primario-azul);
+        transition: all 0.4s ease;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .btn:hover {
+        color: var(--color-primario-azul);
+        background-color: transparent;
+    }
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: left 0.6s ease;
+    }
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    /* --- 4. CABECERA Y NAVEGACIÓN --- */
+    .site-header {
+        position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+        transition: all 0.35s ease-in-out;
+    }
+    .site-header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .navbar {
+        display: flex; justify-content: space-between; align-items: center;
+        height: 100px; /* Aumentado para dar espacio al nuevo logo */
+        transition: height 0.3s ease;
+    }
+    .site-header.scrolled .navbar { height: 80px; } /* Ajustado */
+    
+    .logo img { 
+        height: 165px; /* TAMAÑO AUMENTADO */
+        width: auto; 
+        transition: var(--transition-smooth); 
+    }
+    .logo:hover img {
+        transform: scale(1.08); /* Animación sutil */
+    }
+    .site-header.scrolled .logo img { 
+        height: 100px; /* TAMAÑO AUMENTADO */
+    }
+    
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 40px; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: var(--color-texto-principal); font-weight: 700; padding: 10px 0; position: relative; transition: var(--transition-smooth); }
+    .nav-links a:not(.nav-button)::after {
+        content: ''; position: absolute; bottom: 0; left: 0;
+        width: 0; height: 3px;
+        background-color: var(--color-primario-azul);
+        transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--color-primario-azul); }
+    .nav-links a:hover::after { width: 100%; }
+    
+    .nav-button {
+        background-color: var(--color-primario-azul);
+        color: #fff !important;
+        padding: 10px 25px !important;
+        border-radius: 50px;
+        border: 2px solid var(--color-primario-azul);
+        transition: var(--transition-smooth);
+    }
+    .nav-button:hover {
+        background-color: #fff;
+        color: var(--color-primario-azul) !important;
+    }
+    .nav-button:hover::after { width: 0; }
+
+    /* --- 5. SECCIONES ESPECÍFICAS --- */
+    
+    /* Hero Section */
+    #hero {
+        height: 100vh;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f5ff;
+        background-image: 
+            radial-gradient(at 20% 80%, hsla(204, 64%, 58%, 0.2) 0px, transparent 50%),
+            radial-gradient(at 80% 10%, hsla(204, 64%, 58%, 0.25) 0px, transparent 50%),
+            radial-gradient(at 75% 75%, hsla(204, 64%, 58%, 0.15) 0px, transparent 50%);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+    }
+    .hero-content h1 {
+        font-family: var(--fuente-titulos);
+        font-size: 4.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        font-weight: 800;
+        color: var(--color-texto-titulos);
+    }
+    .hero-content p { font-size: 1.3rem; margin-bottom: 40px; color: #555; }
+
+    /* Títulos de Sección */
+    .section-title { font-family: var(--fuente-titulos); font-size: 3.2rem; color: var(--color-texto-titulos); margin-bottom: 20px; }
+    .section-subtitle { font-size: 1.25rem; max-width: 750px; margin: 0 auto 60px; color: #555; }
+    
+    /* Layout de Imagen y Texto */
+    .image-text-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; text-align: left; }
+    .image-content img { width: 100%; height: auto; border-radius: 16px; box-shadow: var(--sombra-elevada); }
+
+    /* Tarjetas de Servicios */
+    #servicios { background-color: var(--color-fondo-secundario); }
+    .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+    .card {
+        background-color: var(--color-fondo);
+        border-radius: 16px;
+        box-shadow: var(--sombra-suave);
+        transition: var(--transition-smooth);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e9e9e9;
+    }
+    .card:hover {
+        transform: translateY(-12px);
+        box-shadow: var(--sombra-elevada);
+    }
+    .card-icon { padding: 30px 30px 0 30px; color: var(--color-primario-azul); }
+    .card-icon svg { width: 50px; height: 50px; }
+    .card-content { padding: 20px 30px 30px 30px; text-align: left; flex-grow: 1; }
+    .card h3 {
+        font-size: 1.8rem;
+        margin: 0 0 15px 0;
+        color: var(--color-texto-titulos);
+        font-family: var(--fuente-titulos);
+    }
+    
+    /* --- NUEVA SECCIÓN: CURSOS --- */
+    #cursos { background-color: var(--color-fondo); }
+    .cursos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+    }
+    .curso-card {
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: var(--sombra-suave);
+        overflow: hidden;
+        transition: var(--transition-smooth);
+        display: flex;
+        flex-direction: column;
+    }
+    .curso-card:hover {
+        transform: translateY(-12px);
+        box-shadow: var(--sombra-elevada);
+    }
+    .curso-imagen {
+        overflow: hidden;
+        height: 220px;
+    }
+    .curso-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .curso-card:hover .curso-imagen img {
+        transform: scale(1.05);
+    }
+    .curso-contenido {
+        padding: 25px 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .curso-contenido h3 {
+        font-family: var(--fuente-titulos);
+        font-size: 1.6rem;
+        color: var(--color-texto-titulos);
+        margin: 0 0 15px 0;
+    }
+    .curso-contenido p {
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+    .curso-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: #666;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        margin-bottom: 20px;
+    }
+    .curso-btn {
+        display: inline-block;
+        text-align: center;
+        background-color: transparent;
+        color: var(--color-primario-azul);
+        padding: 12px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 2px solid var(--color-primario-azul);
+        transition: var(--transition-smooth);
+    }
+    .curso-btn:hover {
+        background-color: var(--color-primario-azul);
+        color: #fff;
+    }
+
+    /* Testimonios */
+    #testimonios { background-color: var(--color-fondo-secundario); }
+    .testimonial-card {
+        max-width: 800px; margin: 0 auto; padding: 50px;
+        background-color: var(--color-fondo);
+        border-radius: 16px; text-align: center;
+        border-top: 5px solid var(--color-primario-azul);
+    }
+    .testimonial-img {
+        width: 100px; height: 100px; border-radius: 50%;
+        object-fit: cover; margin-bottom: 25px;
+        border: 4px solid var(--color-fondo);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .testimonial-text { font-size: 1.2rem; font-style: italic; margin-bottom: 25px; color: #555; }
+    .testimonial-author { font-weight: 700; color: var(--color-texto-titulos); }
+
+    /* Contacto */
+    #contacto {
+        background-image: linear-gradient(rgba(244, 247, 250, 0.9), rgba(244, 247, 250, 0.9)), url('https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover; background-position: center; background-attachment: fixed;
+    }
+    /* Estilos del formulario de contacto (opcional, para que se vea mejor) */
+    .form-container {
+        max-width: 600px;
+        margin: 40px auto 0;
+        background-color: var(--color-fondo);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: var(--sombra-elevada);
+    }
+    .form-group { margin-bottom: 25px; }
+    .form-label { display: block; margin-bottom: 8px; font-weight: 500; text-align: left; }
+    .form-input {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: var(--color-primario-azul);
+    }
+
+
+    /* Footer */
+    .site-footer { background-color: var(--color-texto-titulos); color: #a0a0a0; text-align: center; padding: 50px 20px; font-size: 0.9rem; }
+
+    /* --- 6. ANIMACIONES --- */
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-80px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(80px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+    .animate-on-scroll { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .is-visible.fadeIn { opacity: 1; animation: fadeIn 1s forwards; }
+    .is-visible.slideInUp { opacity: 1; animation: slideInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+    .is-visible.slideInLeft { opacity: 1; animation: slideInLeft 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+    .is-visible.slideInRight { opacity: 1; animation: slideInRight 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+    .is-visible.zoomIn { opacity: 1; animation: zoomIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+    
+    .card.is-visible:nth-child(1), .curso-card.is-visible:nth-child(1) { animation-delay: 0.1s; }
+    .card.is-visible:nth-child(2), .curso-card.is-visible:nth-child(2) { animation-delay: 0.3s; }
+    .card.is-visible:nth-child(3), .curso-card.is-visible:nth-child(3) { animation-delay: 0.5s; }
+
+    /* --- 7. BURBUJAS SOCIALES --- */
+    .social-bubbles-container { position: fixed; bottom: 25px; right: 25px; z-index: 1010; display: flex; flex-direction: column; gap: 15px; }
+    .social-bubble {
+        display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%;
+        color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease-in-out;
+    }
+    .social-bubble:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+    .social-bubble svg { width: 32px; height: 32px; fill: currentColor; }
+    .bubble-whatsapp { background-color: #25D366; }
+    .bubble-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .bubble-facebook { background-color: #1877F2; }
+
+    /* --- 8. RESPONSIVE DESIGN --- */
+    @media (max-width: 992px) {
+        .section-title { font-size: 2.8rem; }
+        .hero-content h1 { font-size: 3.5rem; }
+        .image-text-layout { gap: 40px; }
+    }
+    @media (max-width: 768px) {
+        section { padding: 80px 0; }
+        .nav-links { display: none; /* Ocultar para menú hamburguesa (no implementado) */ }
+        .site-header .navbar { height: 70px !important; }
+        .logo img { height: 55px !important; } /* Tamaño ajustado para móvil */
+        .hero-content h1 { font-size: 2.5rem; }
+        .hero-content p { font-size: 1.1rem; }
+        .image-text-layout { grid-template-columns: 1fr; text-align: center; }
+        .image-text-layout .text-content { order: 2; }
+        .image-text-layout .image-content { order: 1; margin-bottom: 40px; }
+        .cursos-grid { grid-template-columns: 1fr; }
+        .social-bubbles-container { bottom: 15px; right: 15px; }
+        .social-bubble { width: 50px; height: 50px; }
+        .social-bubble svg { width: 26px; height: 26px; }
+    }
+</style>
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="#hero" class="logo">
+                <img src="IMG/Diseño_sin_título__4__ABAJO-removebg-preview REMOVEEE.png" alt="">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="testimonios.html">Testimonios</a></li>
+                    <li><a href="#contacto" class="nav-button">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll" data-animation="slideInUp">Transformamos tu Potencial en Excelencia</h1>
+                <p class="animate-on-scroll" data-animation="slideInUp">Programas de formación académica diseñados para que alcances tus metas universitarias y profesionales.</p>
+                <a href="#cursos" class="btn animate-on-scroll" data-animation="zoomIn">Descubre Nuestros Cursos</a>
+            </div>
+        </section>
+
+        <section id="quienes-somos">
+            <div class="container image-text-layout">
+                <div class="text-content animate-on-scroll" data-animation="slideInLeft">
+                    <h2 class="section-title">Más que una Institución, Somos tu Aliado Estratégico</h2>
+                    <p>En <strong>Formamos Y Educamos</strong> nacimos de la convicción de que cada estudiante posee un potencial único esperando ser descubierto. Somos un equipo de pedagogos y profesionales apasionados por guiarte en cada paso de tu ruta hacia el éxito académico.</p>
+                    <a href="#contacto" class="btn">Habla con un Asesor</a>
+                </div>
+                <div class="image-content animate-on-scroll" data-animation="slideInRight">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1470" alt="Equipo profesional colaborando en una oficina moderna">
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title animate-on-scroll" data-animation="zoomIn">Soluciones Educativas para Cada Etapa</h2>
+                    <p class="section-subtitle animate-on-scroll" data-animation="fadeIn">Desde el refuerzo escolar hasta la preparación para las pruebas de estado más exigentes.</p>
+                </div>
+                <div class="cards-container">
+                    <div class="card animate-on-scroll" data-animation="slideInUp">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Apoyo Académico</h3>
+                            <p>Reforzamos los conocimientos en todas las áreas para estudiantes de primaria y bachillerato, construyendo bases sólidas para el futuro.</p>
+                        </div>
+                    </div>
+                    <div class="card animate-on-scroll" data-animation="slideInUp">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-2.072-1.036A48.223 48.223 0 0112 3.493a48.223 48.223 0 0111.854 5.617l-2.072 1.036m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" /></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Preparación Preuniversitaria</h3>
+                            <p>Programas intensivos (Pre-Icfes) enfocados en estrategias y conocimientos clave para obtener puntajes sobresalientes.</p>
+                        </div>
+                    </div>
+                    <div class="card animate-on-scroll" data-animation="slideInUp">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Desarrollo de Habilidades</h3>
+                            <p>Te ayudamos a cultivar habilidades blandas como liderazgo, oratoria y pensamiento crítico, claves para tu futuro profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cursos">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title animate-on-scroll" data-animation="zoomIn">Nuestros Cursos Destacados</h2>
+                    <p class="section-subtitle animate-on-scroll" data-animation="fadeIn">Programas diseñados por expertos para potenciar tus habilidades y asegurar tu éxito.</p>
+                </div>
+                <div class="cursos-grid">
+                    <div class="curso-card animate-on-scroll" data-animation="slideInUp">
+                        <div class="curso-imagen">
+                            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Estudiantes preparando el ICFES Saber 11">
+                        </div>
+                        <div class="curso-contenido">
+                            <h3>Pre-ICFES Saber 11 Intensivo</h3>
+                            <p>Prepárate para alcanzar el puntaje que necesitas para ingresar a la universidad de tus sueños. Metodología probada y simulacros constantes.</p>
+                            <div class="curso-meta">
+                                <span><strong>Duración:</strong> 16 semanas</span>
+                                <span><strong>Modalidad:</strong> Presencial / Virtual</span>
+                            </div>
+                            <a href="#contacto" class="curso-btn">Más Información</a>
+                        </div>
+                    </div>
+                    <div class="curso-card animate-on-scroll" data-animation="slideInUp">
+                        <div class="curso-imagen">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop" alt="Jóvenes universitarios en un campus">
+                        </div>
+                        <div class="curso-contenido">
+                            <h3>Orientación Profesional y Vocacional</h3>
+                            <p>Descubre tu verdadera vocación y elige la carrera correcta con nuestro programa de orientación guiado por psicólogos expertos.</p>
+                            <div class="curso-meta">
+                                <span><strong>Duración:</strong> 4 sesiones</span>
+                                <span><strong>Modalidad:</strong> Personalizada</span>
+                            </div>
+                            <a href="#contacto" class="curso-btn">Más Información</a>
+                        </div>
+                    </div>
+                    <div class="curso-card animate-on-scroll" data-animation="slideInUp">
+                        <div class="curso-imagen">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Tutor explicando matemáticas a un estudiante">
+                        </div>
+                        <div class="curso-contenido">
+                            <h3>Refuerzo en Matemáticas y Ciencias</h3>
+                            <p>Fortalece tus bases en cálculo, física y química con tutorías personalizadas que se adaptan a tu ritmo de aprendizaje.</p>
+                            <div class="curso-meta">
+                                <span><strong>Duración:</strong> Flexible</span>
+                                <span><strong>Modalidad:</strong> Individual / Grupal</span>
+                            </div>
+                            <a href="#contacto" class="curso-btn">Más Información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios">
+            <div class="container text-center">
+                <h2 class="section-title animate-on-scroll" data-animation="zoomIn">Lo que Nuestra Comunidad Dice</h2>
+                <div class="testimonial-card animate-on-scroll" data-animation="slideInUp">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" alt="Foto de Carlos Restrepo" class="testimonial-img">
+                    <p class="testimonial-text">"Desde que mi hija empezó en Formamos y Educamos, su confianza y sus notas han mejorado increíblemente. El método de enseñanza es excepcional. ¡Totalmente recomendados!"</p>
+                    <p class="testimonial-author">— Carlos Restrepo, Padre de Estudiante</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title animate-on-scroll" data-animation="fadeIn">Inicia tu Camino Hacia el Éxito Hoy Mismo</h2>
+                    <p class="section-subtitle animate-on-scroll" data-animation="fadeIn">Déjanos tus datos y uno de nuestros asesores expertos se pondrá en contacto contigo para ofrecerte una consultoría gratuita.</p>
+                </div>
+                <form class="form-container animate-on-scroll" data-animation="zoomIn">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre Completo</label>
+                        <input type="text" id="name" class="form-input" placeholder="Ej: Ana María Vélez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-input" placeholder="Ej: tu.correo@email.com" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn">Solicitar Información</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Formamos Y Educamos. Todos los derechos reservados. Medellín, Colombia.</p>
+    </footer>
+
+    <div class="social-bubbles-container">
+        <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="social-bubble bubble-whatsapp">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157.1 341.6c-33.8 0-67.6-9.5-97.8-26.7l-7.1-4.2-73.3 19.3 19.3-71.6-4.7-7.5c-19.1-30.6-29.6-65.5-29.6-101.9 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        </a>
+        <a href="https://instagram.com/tu_usuario" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram" class="social-bubble bubble-instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+        </a>
+        <a href="https://facebook.com/tu_pagina" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook" class="social-bubble bubble-facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loader
+            const loader = document.querySelector('.loader-wrapper');
+            window.addEventListener('load', () => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 700);
+            });
+
+            // Encabezado que cambia con el scroll
+            const header = document.querySelector('.site-header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Sistema de Animación al hacer Scroll
+            const animateObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animationType = entry.target.dataset.animation;
+                        entry.target.classList.add(animationType, 'is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 }); // Se activa cuando el 10% del elemento es visible
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                animateObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
